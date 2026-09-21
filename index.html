@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Hope School - JSS2 Mathematics</title>
+    <title>Sweet Hope School - JSS2 Mathematics Indices</title>
     <style>
         * {
             margin: 0;
@@ -42,7 +42,6 @@
             }
         }
 
-        /* HEADER */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -61,7 +60,6 @@
             opacity: 0.95;
         }
 
-        /* NAME ENTRY SCREEN */
         .name-screen {
             padding: 40px 30px;
             text-align: center;
@@ -137,7 +135,6 @@
             transform: translateY(0);
         }
 
-        /* QUIZ SCREEN */
         .quiz-screen {
             padding: 30px;
             display: none;
@@ -177,7 +174,6 @@
             color: #999;
         }
 
-        /* QUESTION CARD */
         .question-card {
             background: #f8f9fa;
             padding: 25px;
@@ -191,10 +187,10 @@
             font-weight: 600;
             color: #333;
             margin-bottom: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-family: 'Courier New', monospace;
         }
 
-        /* ANSWER OPTIONS */
         .answers-container {
             display: flex;
             flex-direction: column;
@@ -238,7 +234,6 @@
             cursor: not-allowed;
         }
 
-        /* FEEDBACK */
         .feedback {
             margin-top: 20px;
             padding: 15px;
@@ -287,9 +282,9 @@
             font-size: 14px;
             border-left: 3px solid currentColor;
             padding-left: 12px;
+            line-height: 1.6;
         }
 
-        /* RESULTS SCREEN */
         .results-screen {
             display: none;
             padding: 40px 30px;
@@ -323,6 +318,7 @@
             font-size: 16px;
             color: #666;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .submit-btn {
@@ -343,54 +339,6 @@
             box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
         }
 
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 480px) {
-            .container {
-                border-radius: 15px;
-            }
-
-            .header {
-                padding: 25px 15px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .quiz-screen,
-            .name-screen {
-                padding: 20px 15px;
-            }
-
-            .question-text {
-                font-size: 16px;
-            }
-
-            .answer-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            .final-score {
-                font-size: 40px;
-            }
-
-            .trophy {
-                font-size: 60px;
-            }
-        }
-
-        .emoji-correct {
-            color: #28a745;
-            font-weight: 700;
-        }
-
-        .emoji-incorrect {
-            color: #dc3545;
-            font-weight: 700;
-        }
-
-        /* NAVIGATION BUTTONS */
         .nav-buttons {
             display: none;
             gap: 15px;
@@ -439,6 +387,40 @@
         }
 
         @media (max-width: 480px) {
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 25px 15px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .quiz-screen,
+            .name-screen {
+                padding: 20px 15px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .answer-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .final-score {
+                font-size: 40px;
+            }
+
+            .trophy {
+                font-size: 60px;
+            }
+
             .nav-buttons {
                 gap: 10px;
             }
@@ -453,17 +435,15 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
         <div class="header">
             <h1>🎓 Sweet Hope School</h1>
-            <p>JSS2 Mathematics Assignment - Chapter 2: Indices</p>
+            <p>JSS2 Mathematics - Indices (First & Second Laws)</p>
         </div>
 
-        <!-- NAME ENTRY SCREEN -->
         <div class="name-screen" id="nameScreen">
             <div class="emoji-welcome">👋</div>
             <h2>Welcome to Sweet Hope School!</h2>
-            <p>Get ready for an amazing mathematics challenge!</p>
+            <p>Get ready for an amazing mathematics challenge on Indices!</p>
             <div class="name-input-group">
                 <input 
                     type="text" 
@@ -475,7 +455,6 @@
             </div>
         </div>
 
-        <!-- QUIZ SCREEN -->
         <div class="quiz-screen" id="quizScreen">
             <div class="progress-bar">
                 <div class="question-counter">Question <span id="currentQuestion">1</span> of 50</div>
@@ -495,7 +474,6 @@
             </div>
         </div>
 
-        <!-- RESULTS SCREEN -->
         <div class="results-screen" id="resultsScreen">
             <div class="trophy">🏆</div>
             <h2>Quiz Complete!</h2>
@@ -506,69 +484,68 @@
     </div>
 
     <script>
-        // QUESTION DATABASE
         const questions = [
-            { q: "Express 7 × 7 × 7 × 7 × 7 in index form", options: ["7⁵", "7⁴", "7⁶", "5⁷"], correct: 0, working: "Counting 5 times 7 is multiplied, so: 7⁵" },
-            { q: "Express 4 × 4 × 4 × 4 × 4 × 4 in index form", options: ["4⁶", "4⁵", "4⁷", "6⁴"], correct: 0, working: "Counting 6 times 4 is multiplied, so: 4⁶" },
-            { q: "Express 8 × 8 × 8 in index form", options: ["8³", "8²", "8⁴", "3⁸"], correct: 0, working: "Counting 3 times 8 is multiplied, so: 8³" },
-            { q: "Express 10 × 10 × 10 × 10 × 10 × 10 in index form", options: ["10⁶", "10⁵", "10⁷", "6¹⁰"], correct: 0, working: "Counting 6 times 10 is multiplied, so: 10⁶" },
-            { q: "Express (5/5) × (5/5) × (5/5) in index form", options: ["(5/5)³", "(5/5)²", "(5/5)⁴", "5³"], correct: 0, working: "Counting 3 times (5/5) is multiplied, so: (5/5)³" },
-            { q: "Express (-3) × (-3) × (-3) × (-3) in index form", options: ["(-3)⁴", "(-3)³", "(-3)⁵", "4⁻³"], correct: 0, working: "Counting 4 times (-3) is multiplied, so: (-3)⁴" },
-            { q: "Write 8 in index form", options: ["2³", "2²", "2⁴", "8¹"], correct: 0, working: "8 = 2 × 2 × 2 = 2³" },
-            { q: "Write 27 in index form", options: ["3³", "3²", "3⁴", "27¹"], correct: 0, working: "27 = 3 × 3 × 3 = 3³" },
-            { q: "Write 81 in index form", options: ["3⁴", "3³", "3²", "81¹"], correct: 0, working: "81 = 3 × 3 × 3 × 3 = 3⁴" },
-            { q: "Write 216 in index form", options: ["6³", "6²", "6⁴", "216¹"], correct: 0, working: "216 = 6 × 6 × 6 = 6³" },
-            { q: "Write 32 in index form", options: ["2⁵", "2⁴", "2³", "32¹"], correct: 0, working: "32 = 2 × 2 × 2 × 2 × 2 = 2⁵" },
-            { q: "Write 243 in index form", options: ["3⁵", "3⁴", "3³", "243¹"], correct: 0, working: "243 = 3 × 3 × 3 × 3 × 3 = 3⁵" },
-            { q: "Write 1000 in index form", options: ["10³", "10²", "10⁴", "1000¹"], correct: 0, working: "1000 = 10 × 10 × 10 = 10³" },
-            { q: "Write 1331 in index form", options: ["11³", "11²", "11⁴", "1331¹"], correct: 0, working: "1331 = 11 × 11 × 11 = 11³" },
-            { q: "Write 1296 in index form", options: ["6⁴", "6³", "6²", "1296¹"], correct: 0, working: "1296 = 6 × 6 × 6 × 6 = 6⁴" },
-            { q: "Evaluate 2⁹", options: ["512", "256", "128", "1024"], correct: 0, working: "2⁹ = 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 512" },
-            { q: "Evaluate 4⁵", options: ["1024", "512", "256", "2048"], correct: 0, working: "4⁵ = 4 × 4 × 4 × 4 × 4 = 1024" },
-            { q: "Evaluate (-5)²", options: ["25", "-25", "10", "-10"], correct: 0, working: "(-5)² = (-5) × (-5) = 25 (negative × negative = positive)" },
-            { q: "Evaluate (1/2)³", options: ["1/8", "1/6", "1/4", "3/2"], correct: 0, working: "(1/2)³ = (1/2) × (1/2) × (1/2) = 1/8" },
-            { q: "Evaluate (3/7)³", options: ["27/343", "9/49", "3/7", "27/7"], correct: 0, working: "(3/7)³ = (3/7) × (3/7) × (3/7) = 27/343" },
-            { q: "Evaluate (12)³", options: ["1728", "144", "36", "864"], correct: 0, working: "(12)³ = 12 × 12 × 12 = 1728" },
-            { q: "Evaluate 5²", options: ["25", "10", "15", "7"], correct: 0, working: "5² = 5 × 5 = 25" },
-            { q: "Evaluate 3²", options: ["9", "6", "8", "5"], correct: 0, working: "3² = 3 × 3 = 9" },
-            { q: "Evaluate 2⁸", options: ["256", "128", "512", "64"], correct: 0, working: "2⁸ = 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 256" },
-            { q: "Find 5² + 3³", options: ["52", "34", "25", "27"], correct: 0, working: "5² + 3³ = 25 + 27 = 52" },
-            { q: "Find 2⁵ + 4²", options: ["48", "32", "36", "40"], correct: 0, working: "2⁵ + 4² = 32 + 16 = 48" },
-            { q: "Find 7² - 3³", options: ["22", "49", "27", "20"], correct: 0, working: "7² - 3³ = 49 - 27 = 22" },
-            { q: "Find 4⁵ + 5²", options: ["1049", "1024", "25", "1050"], correct: 0, working: "4⁵ + 5² = 1024 + 25 = 1049" },
-            { q: "Find (1.5)³ - (0.5)²", options: ["3.125", "1.5", "3.375", "2.875"], correct: 0, working: "(1.5)³ - (0.5)² = 3.375 - 0.25 = 3.125" },
-            { q: "Find 2³ × 3²", options: ["72", "36", "8", "9"], correct: 0, working: "2³ × 3² = 8 × 9 = 72" },
-            { q: "Find 5² × 2⁴", options: ["400", "100", "50", "200"], correct: 0, working: "5² × 2⁴ = 25 × 16 = 400" },
-            { q: "Find 3³ ÷ 2⁴", options: ["27/16", "3", "27", "16"], correct: 0, working: "3³ ÷ 2⁴ = 27 ÷ 16 = 27/16" },
-            { q: "Simplify 2 × 2 × 2 × 2 × 2", options: ["2⁵", "2⁴", "2³", "2⁶"], correct: 0, working: "Counting 5 factors of 2, we get: 2⁵" },
-            { q: "Simplify 7 × 7", options: ["7²", "7³", "7¹", "7⁴"], correct: 0, working: "Counting 2 factors of 7, we get: 7²" },
-            { q: "Which is larger: 2⁷ or 3⁴?", options: ["2⁷", "3⁴", "They're equal", "Cannot determine"], correct: 0, working: "2⁷ = 128; 3⁴ = 81; So 2⁷ is larger" },
-            { q: "Evaluate (-2)⁵", options: ["-32", "32", "-10", "10"], correct: 0, working: "(-2)⁵ = (-2) × (-2) × (-2) × (-2) × (-2) = -32" },
-            { q: "Evaluate (-3)³", options: ["-27", "27", "-9", "9"], correct: 0, working: "(-3)³ = (-3) × (-3) × (-3) = -27" },
-            { q: "Evaluate 10⁰", options: ["1", "0", "10", "undefined"], correct: 0, working: "Any number to the power 0 equals 1, so 10⁰ = 1" },
-            { q: "Express 625 in index form", options: ["5⁴", "5³", "5²", "5⁵"], correct: 0, working: "625 = 5 × 5 × 5 × 5 = 5⁴" },
-            { q: "Express 128 in index form", options: ["2⁷", "2⁶", "2⁸", "2⁵"], correct: 0, working: "128 = 2 × 2 × 2 × 2 × 2 × 2 × 2 = 2⁷" },
-            { q: "Express 343 in index form", options: ["7³", "7²", "7⁴", "7⁵"], correct: 0, working: "343 = 7 × 7 × 7 = 7³" },
-            { q: "Find 6²", options: ["36", "12", "30", "42"], correct: 0, working: "6² = 6 × 6 = 36" },
-            { q: "Find 9²", options: ["81", "18", "64", "100"], correct: 0, working: "9² = 9 × 9 = 81" },
-            { q: "Find 10⁴", options: ["10000", "1000", "100", "40"], correct: 0, working: "10⁴ = 10 × 10 × 10 × 10 = 10000" },
-            { q: "Evaluate (2/3)²", options: ["4/9", "2/3", "4/3", "2/9"], correct: 0, working: "(2/3)² = (2/3) × (2/3) = 4/9" },
-            { q: "Evaluate (-4)²", options: ["16", "-16", "8", "-8"], correct: 0, working: "(-4)² = (-4) × (-4) = 16 (negative × negative = positive)" },
-            { q: "Find 3³ + 2³", options: ["35", "27", "8", "30"], correct: 0, working: "3³ + 2³ = 27 + 8 = 35" },
-            { q: "Find 4² × 3²", options: ["144", "16", "9", "48"], correct: 0, working: "4² × 3² = 16 × 9 = 144" },
-            { q: "Evaluate 2² × 3² × 4", options: ["144", "64", "48", "96"], correct: 0, working: "2² × 3² × 4 = 4 × 9 × 4 = 144" },
-            { q: "What is y × y × y .....10 times in index form?", options: ["y¹⁰", "y⁹", "y¹¹", "y⁸"], correct: 0, working: "y multiplied 10 times = y¹⁰" },
-            { q: "What is a × a × a .....20 times in index form?", options: ["a²⁰", "a¹⁹", "a²¹", "a¹⁸"], correct: 0, working: "a multiplied 20 times = a²⁰" }
+            // FIRST LAW: a^m × a^n = a^(m+n)
+            { q: "Simplify: 2³ × 2²", options: ["2⁵", "2⁶", "2⁴", "2¹"], correct: 0, working: "Using first law: 2³ × 2² = 2^(3+2) = 2⁵" },
+            { q: "Simplify: 3⁴ × 3¹", options: ["3⁵", "3⁴", "3³", "3⁶"], correct: 0, working: "Using first law: 3⁴ × 3¹ = 3^(4+1) = 3⁵" },
+            { q: "Simplify: 5² × 5³", options: ["5⁵", "5⁶", "5⁴", "5¹"], correct: 0, working: "Using first law: 5² × 5³ = 5^(2+3) = 5⁵" },
+            { q: "Simplify: x⁴ × x²", options: ["x⁶", "x⁸", "x⁵", "x³"], correct: 0, working: "Using first law: x⁴ × x² = x^(4+2) = x⁶" },
+            { q: "Simplify: a³ × a⁶", options: ["a⁹", "a⁸", "a¹⁰", "a⁶"], correct: 0, working: "Using first law: a³ × a⁶ = a^(3+6) = a⁹" },
+            { q: "Simplify: 7² × 7⁴", options: ["7⁶", "7⁸", "7⁵", "7³"], correct: 0, working: "Using first law: 7² × 7⁴ = 7^(2+4) = 7⁶" },
+            { q: "Simplify: b⁵ × b²", options: ["b⁷", "b⁶", "b⁸", "b³"], correct: 0, working: "Using first law: b⁵ × b² = b^(5+2) = b⁷" },
+            { q: "Simplify: 4³ × 4²", options: ["4⁵", "4⁶", "4⁴", "4¹"], correct: 0, working: "Using first law: 4³ × 4² = 4^(3+2) = 4⁵" },
+            { q: "Simplify: y¹ × y⁸", options: ["y⁹", "y⁸", "y⁷", "y¹⁰"], correct: 0, working: "Using first law: y¹ × y⁸ = y^(1+8) = y⁹" },
+            { q: "Simplify: m⁶ × m³", options: ["m⁹", "m⁶", "m¹⁰", "m⁸"], correct: 0, working: "Using first law: m⁶ × m³ = m^(6+3) = m⁹" },
+            { q: "Simplify: 2² × 2⁵", options: ["2⁷", "2¹⁰", "2⁶", "2⁸"], correct: 0, working: "Using first law: 2² × 2⁵ = 2^(2+5) = 2⁷" },
+            { q: "Simplify: p⁴ × p⁴", options: ["p⁸", "p⁴", "p¹⁶", "p⁷"], correct: 0, working: "Using first law: p⁴ × p⁴ = p^(4+4) = p⁸" },
+            { q: "Simplify: 3³ × 3³", options: ["3⁶", "3⁹", "3⁵", "3³"], correct: 0, working: "Using first law: 3³ × 3³ = 3^(3+3) = 3⁶" },
+            { q: "Simplify: 6¹ × 6⁵", options: ["6⁶", "6⁵", "6⁷", "6⁴"], correct: 0, working: "Using first law: 6¹ × 6⁵ = 6^(1+5) = 6⁶" },
+            { q: "Simplify: z³ × z⁷", options: ["z¹⁰", "z⁸", "z¹¹", "z⁹"], correct: 0, working: "Using first law: z³ × z⁷ = z^(3+7) = z¹⁰" },
+            { q: "Simplify: n² × n⁵ × n¹", options: ["n⁸", "n⁷", "n⁹", "n⁶"], correct: 0, working: "Using first law: n² × n⁵ × n¹ = n^(2+5+1) = n⁸" },
+            { q: "Simplify: 8² × 8¹", options: ["8³", "8⁴", "8²", "8⁵"], correct: 0, working: "Using first law: 8² × 8¹ = 8^(2+1) = 8³" },
+            { q: "Simplify: k⁶ × k²", options: ["k⁸", "k⁶", "k¹⁰", "k⁷"], correct: 0, working: "Using first law: k⁶ × k² = k^(6+2) = k⁸" },
+            { q: "Simplify: 9⁴ × 9²", options: ["9⁶", "9⁸", "9⁵", "9²"], correct: 0, working: "Using first law: 9⁴ × 9² = 9^(4+2) = 9⁶" },
+            { q: "Simplify: c⁷ × c³", options: ["c¹⁰", "c⁸", "c¹¹", "c⁹"], correct: 0, working: "Using first law: c⁷ × c³ = c^(7+3) = c¹⁰" },
+            { q: "Evaluate: 2³ × 2²", options: ["32", "64", "16", "8"], correct: 0, working: "2³ × 2² = 2⁵ = 32" },
+            { q: "Evaluate: 3² × 3³", options: ["243", "81", "27", "729"], correct: 0, working: "3² × 3³ = 3⁵ = 243" },
+            { q: "Evaluate: 5¹ × 5²", options: ["125", "25", "625", "50"], correct: 0, working: "5¹ × 5² = 5³ = 125" },
+            { q: "Evaluate: 2⁴ × 2¹", options: ["32", "16", "64", "8"], correct: 0, working: "2⁴ × 2¹ = 2⁵ = 32" },
+            { q: "Evaluate: 4² × 4¹", options: ["64", "16", "32", "8"], correct: 0, working: "4² × 4¹ = 4³ = 64" },
+
+            // SECOND LAW: a^m ÷ a^n = a^(m-n)
+            { q: "Simplify: 2⁶ ÷ 2²", options: ["2⁴", "2³", "2⁵", "2⁶"], correct: 0, working: "Using second law: 2⁶ ÷ 2² = 2^(6-2) = 2⁴" },
+            { q: "Simplify: 3⁵ ÷ 3²", options: ["3³", "3⁴", "3²", "3⁵"], correct: 0, working: "Using second law: 3⁵ ÷ 3² = 3^(5-2) = 3³" },
+            { q: "Simplify: 5⁷ ÷ 5³", options: ["5⁴", "5⁵", "5³", "5⁶"], correct: 0, working: "Using second law: 5⁷ ÷ 5³ = 5^(7-3) = 5⁴" },
+            { q: "Simplify: x⁸ ÷ x²", options: ["x⁶", "x⁴", "x⁷", "x⁵"], correct: 0, working: "Using second law: x⁸ ÷ x² = x^(8-2) = x⁶" },
+            { q: "Simplify: a¹⁰ ÷ a⁴", options: ["a⁶", "a⁵", "a⁷", "a⁸"], correct: 0, working: "Using second law: a¹⁰ ÷ a⁴ = a^(10-4) = a⁶" },
+            { q: "Simplify: 7⁸ ÷ 7⁵", options: ["7³", "7⁴", "7²", "7⁵"], correct: 0, working: "Using second law: 7⁸ ÷ 7⁵ = 7^(8-5) = 7³" },
+            { q: "Simplify: b⁹ ÷ b⁶", options: ["b³", "b⁴", "b⁵", "b²"], correct: 0, working: "Using second law: b⁹ ÷ b⁶ = b^(9-6) = b³" },
+            { q: "Simplify: 4⁷ ÷ 4³", options: ["4⁴", "4⁵", "4³", "4²"], correct: 0, working: "Using second law: 4⁷ ÷ 4³ = 4^(7-3) = 4⁴" },
+            { q: "Simplify: y¹² ÷ y⁸", options: ["y⁴", "y⁵", "y³", "y⁶"], correct: 0, working: "Using second law: y¹² ÷ y⁸ = y^(12-8) = y⁴" },
+            { q: "Simplify: m¹¹ ÷ m⁷", options: ["m⁴", "m⁵", "m³", "m⁶"], correct: 0, working: "Using second law: m¹¹ ÷ m⁷ = m^(11-7) = m⁴" },
+            { q: "Simplify: 2⁹ ÷ 2⁴", options: ["2⁵", "2⁶", "2⁴", "2³"], correct: 0, working: "Using second law: 2⁹ ÷ 2⁴ = 2^(9-4) = 2⁵" },
+            { q: "Simplify: p¹⁵ ÷ p⁷", options: ["p⁸", "p⁷", "p⁹", "p⁶"], correct: 0, working: "Using second law: p¹⁵ ÷ p⁷ = p^(15-7) = p⁸" },
+            { q: "Simplify: 3¹⁰ ÷ 3⁶", options: ["3⁴", "3⁵", "3³", "3⁶"], correct: 0, working: "Using second law: 3¹⁰ ÷ 3⁶ = 3^(10-6) = 3⁴" },
+            { q: "Simplify: 6⁹ ÷ 6⁴", options: ["6⁵", "6⁴", "6⁶", "6³"], correct: 0, working: "Using second law: 6⁹ ÷ 6⁴ = 6^(9-4) = 6⁵" },
+            { q: "Simplify: z¹⁴ ÷ z⁹", options: ["z⁵", "z⁶", "z⁴", "z⁷"], correct: 0, working: "Using second law: z¹⁴ ÷ z⁹ = z^(14-9) = z⁵" },
+            { q: "Simplify: n⁸ ÷ n⁵", options: ["n³", "n⁴", "n²", "n⁵"], correct: 0, working: "Using second law: n⁸ ÷ n⁵ = n^(8-5) = n³" },
+            { q: "Simplify: 8⁷ ÷ 8³", options: ["8⁴", "8⁵", "8³", "8²"], correct: 0, working: "Using second law: 8⁷ ÷ 8³ = 8^(7-3) = 8⁴" },
+            { q: "Simplify: k¹² ÷ k⁶", options: ["k⁶", "k⁵", "k⁷", "k⁴"], correct: 0, working: "Using second law: k¹² ÷ k⁶ = k^(12-6) = k⁶" },
+            { q: "Simplify: 9¹¹ ÷ 9⁸", options: ["9³", "9⁴", "9²", "9⁵"], correct: 0, working: "Using second law: 9¹¹ ÷ 9⁸ = 9^(11-8) = 9³" },
+            { q: "Simplify: c¹³ ÷ c⁷", options: ["c⁶", "c⁵", "c⁷", "c⁴"], correct: 0, working: "Using second law: c¹³ ÷ c⁷ = c^(13-7) = c⁶" },
+            { q: "Evaluate: 2⁶ ÷ 2²", options: ["16", "8", "32", "4"], correct: 0, working: "2⁶ ÷ 2² = 2⁴ = 16" },
+            { q: "Evaluate: 3⁵ ÷ 3²", options: ["27", "9", "81", "3"], correct: 0, working: "3⁵ ÷ 3² = 3³ = 27" },
+            { q: "Evaluate: 5⁴ ÷ 5²", options: ["25", "5", "125", "10"], correct: 0, working: "5⁴ ÷ 5² = 5² = 25" },
+            { q: "Evaluate: 2⁸ ÷ 2⁴", options: ["16", "8", "32", "4"], correct: 0, working: "2⁸ ÷ 2⁴ = 2⁴ = 16" },
+            { q: "Evaluate: 4⁵ ÷ 4²", options: ["64", "16", "256", "4"], correct: 0, working: "4⁵ ÷ 4² = 4³ = 64" }
         ];
 
-        // STATE VARIABLES
         let currentQuestionIndex = 0;
         let score = 0;
         let shuffledQuestions = [];
         let studentName = '';
-        let answers = {}; // Store user answers
+        let answers = {};
 
-        // SHUFFLE ARRAY FUNCTION
         function shuffle(array) {
             let arr = [...array];
             for (let i = arr.length - 1; i > 0; i--) {
@@ -578,13 +555,6 @@
             return arr;
         }
 
-        // SHUFFLE ANSWER OPTIONS
-        function shuffleAnswers(correct, incorrect) {
-            const all = [correct, ...incorrect];
-            return shuffle(all);
-        }
-
-        // START QUIZ
         function startQuiz() {
             const name = document.getElementById('studentName').value.trim();
             if (!name) {
@@ -598,11 +568,9 @@
             loadQuestion();
         }
 
-        // LOAD QUESTION
         function loadQuestion() {
             const question = shuffledQuestions[currentQuestionIndex];
             
-            // Use stored shuffled options if question was already viewed
             let shuffledOptions;
             if (shuffledQuestions[currentQuestionIndex].shuffledOptions) {
                 shuffledOptions = shuffledQuestions[currentQuestionIndex].shuffledOptions;
@@ -613,7 +581,6 @@
                     { text: question.options[2], isCorrect: question.correct === 2 },
                     { text: question.options[3], isCorrect: question.correct === 3 }
                 ]);
-                // Store correct answer for highlighting later
                 shuffledQuestions[currentQuestionIndex].correctText = shuffledOptions.find(o => o.isCorrect).text;
                 shuffledQuestions[currentQuestionIndex].shuffledOptions = shuffledOptions;
             }
@@ -624,7 +591,7 @@
 
             const container = document.getElementById('answersContainer');
             container.innerHTML = '';
-            shuffledOptions.forEach((option, index) => {
+            shuffledOptions.forEach((option) => {
                 const btn = document.createElement('button');
                 btn.className = 'answer-btn';
                 btn.textContent = option.text;
@@ -636,7 +603,6 @@
             document.getElementById('feedback').classList.remove('show');
             document.getElementById('navButtons').style.display = 'none';
 
-            // If already answered, show previous state
             if (answers[currentQuestionIndex] !== undefined) {
                 const isCorrect = answers[currentQuestionIndex];
                 const buttons = container.querySelectorAll('.answer-btn');
@@ -671,7 +637,6 @@
             updateNavigation();
         }
 
-        // UPDATE NAVIGATION BUTTONS
         function updateNavigation() {
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
@@ -689,9 +654,7 @@
             }
         }
 
-        // ANSWER QUESTION
         function answerQuestion(isCorrect, selectedText, working) {
-            // Don't re-answer if already answered
             if (answers[currentQuestionIndex] !== undefined) {
                 return;
             }
@@ -701,7 +664,6 @@
             
             buttons.forEach(btn => btn.disabled = true);
 
-            // Store the answer
             answers[currentQuestionIndex] = isCorrect;
 
             if (isCorrect) {
@@ -722,19 +684,16 @@
                     if (btn.textContent === selectedText) {
                         btn.classList.add('incorrect');
                     }
-                    // Highlight the correct answer
                     if (btn.textContent === correctText) {
                         btn.classList.add('correct');
                     }
                 });
             }
 
-            // Show navigation buttons after answering
             document.getElementById('navButtons').style.display = 'flex';
             updateScore();
         }
 
-        // NEXT QUESTION
         function nextQuestion() {
             if (currentQuestionIndex < shuffledQuestions.length - 1) {
                 currentQuestionIndex++;
@@ -744,7 +703,6 @@
             }
         }
 
-        // PREVIOUS QUESTION
         function prevQuestion() {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
@@ -752,20 +710,16 @@
             }
         }
 
-        // UPDATE SCORE DISPLAY
         function updateScore() {
-            // Count total correct answers so far
             let totalCorrect = Object.values(answers).filter(a => a === true).length;
             const percentage = totalCorrect > 0 ? Math.round((totalCorrect / (currentQuestionIndex + 1)) * 100) : 0;
             document.getElementById('scorePercentage').textContent = percentage;
         }
 
-        // SHOW RESULTS
         function showResults() {
             document.getElementById('quizScreen').classList.remove('active');
             document.getElementById('resultsScreen').classList.add('active');
 
-            // Calculate final score from answers
             const totalCorrect = Object.values(answers).filter(a => a === true).length;
             const percentage = Math.round((totalCorrect / shuffledQuestions.length) * 100);
             document.getElementById('finalScore').textContent = percentage + '%';
@@ -781,12 +735,11 @@
             document.getElementById('scoreMessage').textContent = `${studentName}, you scored ${totalCorrect} out of ${shuffledQuestions.length} questions.\n${message}`;
         }
 
-        // SUBMIT RESULTS
         function submitResults() {
             const totalCorrect = Object.values(answers).filter(a => a === true).length;
             const percentage = Math.round((totalCorrect / shuffledQuestions.length) * 100);
-            const subject = `JSS2 Math Assignment - ${studentName}`;
-            const body = `Student Name: ${studentName}%0AScore: ${totalCorrect}/${shuffledQuestions.length}%0APercentage: ${percentage}%%0A%0AAssignment: Chapter 2 - Indices`;
+            const subject = `JSS2 Indices Assignment - ${studentName}`;
+            const body = `Student Name: ${studentName}%0AScore: ${totalCorrect}/${shuffledQuestions.length}%0APercentage: ${percentage}%%0A%0AAssignment: Indices - First & Second Laws`;
             window.location.href = `mailto:justzcontentz@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
     </script>
